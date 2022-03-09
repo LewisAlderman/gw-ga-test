@@ -2,6 +2,12 @@
   text-align: center;
 }
 
+button {
+  padding: 1rem;
+  font-size: larger;
+  margin-bottom: 1rem;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
