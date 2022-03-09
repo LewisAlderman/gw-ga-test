@@ -1,9 +1,10 @@
+// @ts-check
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-import { Switch } from 'react-router-dom';
-import { Route } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+// eslint-disable-next-line no-unused-vars
+import { Switch, Route, Link, type RouteProps } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 function App() {
   const [clicks, update] = React.useState(0);
@@ -25,12 +26,12 @@ function App() {
       </header>
       <Switch>
         {/*  */}
-        <Route path="/subpath" render={() => (
+        <AppRoute title="Subpath" path="/subpath" render={() => (
           <h1>Subpath</h1>
         )} />
 
         {/*  */}
-        <Route path="/form" render={({history}) => (
+        <AppRoute title="Form" path="/form" render={({history}) => (
           <form onSubmit={e => {
             e.preventDefault();
             history.push('/success?input=' + e.target[0].value);
@@ -54,7 +55,7 @@ function App() {
         )} />
         
         {/*  */}
-        <Route render={() => (
+        <AppRoute title="" render={() => (
           <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -81,3 +82,11 @@ function App() {
 }
 
 export default App;
+
+/** @type {React.FC<RouteProps & {title: string}>} */
+const AppRoute = (props) => (
+  <>
+    <Helmet title={`Test` + (props.title ? (' | ' + props.title) : "")} />
+    <Route {...props} />
+  </>
+)
