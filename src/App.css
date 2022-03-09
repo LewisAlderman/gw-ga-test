@@ -1,5 +1,25 @@
 .App {
   text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+}
+
+header ul {
+  display: flex;
+  gap: 1rem;
+}
+
+ul {
+  padding: 0;
+  padding: 0;
+}
+
+header ul li {
+  list-style: none;
 }
 
 button {
@@ -20,8 +40,6 @@ button {
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
